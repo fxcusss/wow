@@ -14,8 +14,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
+if (!process.env.ADMIN_PASSWORD) {
+  console.error('❌ ADMIN_PASSWORD is not set in environment variables!');
+  console.error('📝 Please add an admin password to the Secrets tab.');
+  process.exit(1);
+}
+
+if (!process.env.SESSION_SECRET) {
+  console.error('❌ SESSION_SECRET is not set in environment variables!');
+  console.error('📝 Please add a session secret to the Secrets tab.');
+  process.exit(1);
+}
+
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'your-secret-key-change-this',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: { 
@@ -23,14 +37,6 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
-
-if (!process.env.ADMIN_PASSWORD) {
-  console.error('❌ ADMIN_PASSWORD is not set in environment variables!');
-  console.error('📝 Please add an admin password to the Secrets tab.');
-  process.exit(1);
-}
-
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 function isAuthenticated(req, res, next) {
   if (req.session.isAdmin) {
