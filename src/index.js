@@ -1,5 +1,6 @@
 import { Client, GatewayIntentBits, Collection, REST, Routes } from 'discord.js';
 import { initDatabase } from './database.js';
+import { startWebServer } from './server.js';
 import * as activateCommand from './commands/activate.js';
 import * as licensesCommand from './commands/licenses.js';
 import * as revokeCommand from './commands/revoke.js';
@@ -29,6 +30,8 @@ client.once('ready', async () => {
   await initDatabase();
 
   await registerCommands();
+  
+  startWebServer();
   
   console.log('✅ Bot is fully operational!');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');

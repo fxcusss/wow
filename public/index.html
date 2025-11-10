@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>License Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="login-container" class="login-container">
+    <div class="login-card">
+      <h1>🔐 Admin Login</h1>
+      <p>Enter your password to access the license dashboard</p>
+      <form id="login-form">
+        <input type="password" id="password" placeholder="Admin Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <div id="login-error" class="error-message"></div>
+    </div>
+  </div>
+
+  <div id="dashboard-container" class="dashboard-container" style="display: none;">
+    <header>
+      <div class="header-content">
+        <h1>📋 License Management Dashboard</h1>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div class="stats-container">
+      <div class="stat-card total">
+        <div class="stat-icon">📊</div>
+        <div class="stat-content">
+          <div class="stat-value" id="total-licenses">0</div>
+          <div class="stat-label">Total Licenses</div>
+        </div>
+      </div>
+      <div class="stat-card active">
+        <div class="stat-icon">✅</div>
+        <div class="stat-content">
+          <div class="stat-value" id="active-licenses">0</div>
+          <div class="stat-label">Active</div>
+        </div>
+      </div>
+      <div class="stat-card revoked">
+        <div class="stat-icon">❌</div>
+        <div class="stat-content">
+          <div class="stat-value" id="revoked-licenses">0</div>
+          <div class="stat-label">Revoked</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <div class="table-header">
+        <h2>All Licenses</h2>
+        <div class="search-controls">
+          <input type="text" id="search-input" placeholder="Search by username or license key..." />
+          <div class="pagination">
+            <button id="prev-page" class="page-btn">← Previous</button>
+            <span id="page-info">Page 1</span>
+            <button id="next-page" class="page-btn">Next →</button>
+          </div>
+        </div>
+      </div>
+      
+      <table id="licenses-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>License Key</th>
+            <th>Status</th>
+            <th>Activated</th>
+            <th>Revoked</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="licenses-tbody">
+          <tr>
+            <td colspan="6" class="loading">Loading licenses...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
