@@ -8,12 +8,19 @@
     "start": "node src/index.js",
     "dev": "node src/index.js"
   },
-  "keywords": ["discord", "bot", "license", "management"],
+  "keywords": [
+    "discord",
+    "bot",
+    "license",
+    "management"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.14.1",
-    "pg": "^8.11.3",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "pg": "^8.11.3"
   }
 }
