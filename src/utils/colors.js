@@ -1,0 +1,7 @@
+export const Colors = {
+  BLURPLE: 0x5865F2,
+  GREEN: 0x57F287,
+  YELLOW: 0xFEE75C,
+  RED: 0xED4245,
+  DARK: 0x2C2F33
+};
