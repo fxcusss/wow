@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>License Dashboard</title>
+  <title>License Management System</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <div id="login-container" class="login-container">
     <div class="login-card">
-      <h1>🔐 Admin Login</h1>
-      <p>Enter your password to access the license dashboard</p>
+      <h1>Admin Login</h1>
+      <p>Enter your credentials to access the license management system</p>
       <form id="login-form">
-        <input type="password" id="password" placeholder="Admin Password" required>
-        <button type="submit">Login</button>
+        <input type="password" id="password" placeholder="Enter admin password" required autocomplete="current-password">
+        <button type="submit">Sign In</button>
       </form>
       <div id="login-error" class="error-message"></div>
     </div>
@@ -22,44 +22,41 @@
   <div id="dashboard-container" class="dashboard-container" style="display: none;">
     <header>
       <div class="header-content">
-        <h1>📋 License Management Dashboard</h1>
-        <button id="logout-btn" class="logout-btn">Logout</button>
+        <h1>License Management System</h1>
+        <button id="logout-btn" class="logout-btn">Sign Out</button>
       </div>
     </header>
 
     <div class="stats-container">
       <div class="stat-card total">
-        <div class="stat-icon">📊</div>
         <div class="stat-content">
-          <div class="stat-value" id="total-licenses">0</div>
           <div class="stat-label">Total Licenses</div>
+          <div class="stat-value" id="total-licenses">0</div>
         </div>
       </div>
       <div class="stat-card active">
-        <div class="stat-icon">✅</div>
         <div class="stat-content">
+          <div class="stat-label">Active Licenses</div>
           <div class="stat-value" id="active-licenses">0</div>
-          <div class="stat-label">Active</div>
         </div>
       </div>
       <div class="stat-card revoked">
-        <div class="stat-icon">❌</div>
         <div class="stat-content">
+          <div class="stat-label">Revoked Licenses</div>
           <div class="stat-value" id="revoked-licenses">0</div>
-          <div class="stat-label">Revoked</div>
         </div>
       </div>
     </div>
 
     <div class="table-container">
       <div class="table-header">
-        <h2>All Licenses</h2>
+        <h2>License Registry</h2>
         <div class="search-controls">
-          <input type="text" id="search-input" placeholder="Search by username or license key..." />
+          <input type="text" id="search-input" placeholder="Search licenses..." />
           <div class="pagination">
-            <button id="prev-page" class="page-btn">← Previous</button>
+            <button id="prev-page" class="page-btn">Previous</button>
             <span id="page-info">Page 1</span>
-            <button id="next-page" class="page-btn">Next →</button>
+            <button id="next-page" class="page-btn">Next</button>
           </div>
         </div>
       </div>
